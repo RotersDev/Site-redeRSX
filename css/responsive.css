@@ -1,0 +1,238 @@
+/* ========================================
+   RESPONSIVE - Estilos Responsivos
+   ======================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .main-container {
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0 1rem;
+    }
+    
+    .hero-section {
+        padding: 3rem 0 2rem;
+        margin-top: 70px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .products-section {
+        padding: 3rem 0;
+    }
+    
+    .products-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        padding: 1.5rem;
+    }
+    
+    .product-name {
+        font-size: 1.2rem;
+        white-space: normal;
+    }
+    
+    .support-section {
+        padding: 3rem 0;
+    }
+    
+    .support-title {
+        font-size: 1.8rem;
+    }
+    
+    .support-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .support-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .support-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    footer {
+        margin-top: 4rem;
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-brand {
+        margin-bottom: 2rem;
+    }
+    
+    .footer-logo img {
+        height: 40px;
+    }
+    
+    .footer-nav {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-nav-links {
+        align-items: center;
+    }
+    
+    .footer-social-links {
+        gap: 0.8rem;
+    }
+    
+    .footer-social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .main-container {
+        padding: 0 0.8rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+    }
+    
+    .products-title {
+        font-size: 1.8rem;
+    }
+    
+    .product-card {
+        padding: 1rem;
+    }
+    
+    .product-logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .product-name {
+        font-size: 1.1rem;
+    }
+    
+    .support-title {
+        font-size: 1.6rem;
+    }
+    
+    .support-description {
+        font-size: 0.9rem;
+    }
+    
+    .support-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer-brand-text {
+        font-size: 1rem;
+    }
+    
+    .footer-tagline {
+        font-size: 0.8rem;
+    }
+    
+    .footer-nav-section h4 {
+        font-size: 1rem;
+    }
+    
+    .footer-link {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Extra Small */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .hero-description {
+        font-size: 0.8rem;
+    }
+    
+    .products-title {
+        font-size: 1.6rem;
+    }
+    
+    .product-card {
+        padding: 0.8rem;
+    }
+    
+    .product-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .product-name {
+        font-size: 1rem;
+    }
+    
+    .support-title {
+        font-size: 1.4rem;
+    }
+    
+    .support-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+    }
+}

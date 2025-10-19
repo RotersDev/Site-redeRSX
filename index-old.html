@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDE RSX - Soluções Digitais Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Cores profissionais - tema preto */
+            --primary: #000000;
+            --primary-dark: #000000;
+            --primary-light: #111111;
+            --accent: #ffffff;
+            --accent-dark: #e0e0e0;
+            --accent-light: #ffffff;
+            --highlight: #ffffff;
+            --highlight-dark: #cccccc;
+            --highlight-light: #ffffff;
+            
+            /* Cores de suporte profissionais */
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --email: #4285F4;
+            --email-dark: #1a73e8;
+            
+            /* Tons neutros profissionais */
+            --dark: #000000;
+            --darker: #000000;
+            --light: #ffffff;
+            --light-90: rgba(255, 255, 255, 0.9);
+            --light-70: rgba(255, 255, 255, 0.7);
+            --light-50: rgba(255, 255, 255, 0.5);
+            --light-30: rgba(255, 255, 255, 0.3);
+            --light-10: rgba(255, 255, 255, 0.1);
+            
+            /* Efeitos profissionais */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --glow: 0 0 20px rgba(255, 255, 255, 0.1);
+            --glow-accent: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+        }
+        
+        /* Efeito de gradiente profissional */
+        .gradient-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 30%, 
+                    rgba(255, 255, 255, 0.02) 0%, 
+                    transparent 30%),
+                radial-gradient(circle at 70% 70%, 
+                    rgba(255, 255, 255, 0.01) 0%, 
+                    transparent 30%);
+            z-index: -2;
+            opacity: 0.8;
+        }
+        
+        /* Efeito de partículas premium */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0.3;
+        }
+        
+        /* Menu Mobile Responsivo */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--light);
+            transition: var(--transition);
+            border-radius: 1px;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+        }
+        
+        .mobile-nav-link {
+            color: var(--light-70);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--light);
+            padding-left: 1rem;
+        }
+        
+        .mobile-nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        /* Container principal profissional */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header Profissional com Navegação */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .header-logo img {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
+        }
+        
+        .header-logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .header-nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .cta-button {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.primary {
+            background: var(--light);
+            color: var(--dark);
+            border-color: var(--light);
+        }
+        
+        .cta-button.primary:hover {
+            background: var(--light-90);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        
+        /* Hero Section Unificada */
+        .hero-section {
+            margin-top: 80px;
+            text-align: center;
+            padding: 4rem 0 3rem;
+            position: relative;
+            background: transparent;
+        }
+        
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -2px;
+            color: var(--light);
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--light), transparent);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Container Principal Unificado */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Seção de Comunicado Oficial */
+        .official-notice {
+            background: linear-gradient(145deg, rgba(15, 5, 30, 0.9), rgba(10, 3, 20, 0.95));
+            border-radius: 20px;
+            padding: 3.5rem;
+            margin: 0 auto 5rem;
+            max-width: 900px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow), var(--glow);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .official-notice::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+        }
+        
+        
+        .profile-section {
+            margin-bottom: 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+        
+        .profile-badge {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transform: translateY(-50%);
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .profile-image-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .profile-image-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 245, 160, 0.3);
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .profile-verification {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .profile-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .profile-subtitle {
+            color: var(--light-70);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .notice-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .notice-message {
+            color: var(--light-70);
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .notice-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .official-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .official-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.1rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            min-width: 220px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        
+        .whatsapp-button {
+            background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+            color: white;
+        }
+        
+        
+        .official-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .official-warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(255, 59, 48, 0.15);
+            padding: 0.7rem 1.3rem;
+            border-radius: 50px;
+            color: #ff6b60;
+            font-weight: 600;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 59, 48, 0.3);
+            font-size: 0.9rem;
+        }
+        
+        /* Grid de Produtos Profissional */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding: 0;
+        }
+        
+        .product-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--highlight), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 245, 160, 0.1);
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .product-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image::before {
+            transform: translateX(100%);
+        }
+        
+        
+        
+        .product-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            filter: brightness(1.1) contrast(1.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .product-logo {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 245, 160, 0.3);
+        }
+        
+        .product-description {
+            color: var(--light-70);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .product-features {
+            margin-bottom: 2rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--light-80);
+            font-size: 0.9rem;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            color: var(--light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .product-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .product-link:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-link:hover::before {
+            left: 100%;
+        }
+        
+        .product-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Animação de Loading */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        }
+        
+        .product-name::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--light);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-name::after {
+            width: 50px;
+        }
+        
+        .product-description {
+            font-size: 1rem;
+            color: var(--light-70);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        
+        .product-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Seção de Suporte Minimalista */
+        .support-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem auto 0;
+            max-width: 600px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .support-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .support-description {
+            color: var(--light-70);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .support-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .support-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            min-width: 140px;
+            justify-content: center;
+        }
+        
+        .whatsapp-button {
+            background: var(--whatsapp);
+            color: white;
+        }
+        
+        
+        .support-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .whatsapp-button:hover {
+            background: var(--whatsapp-dark);
+        }
+        
+        
+        /* Footer Profissional */
+        footer {
+            margin-top: 6rem;
+            padding: 4rem 0 2rem;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.9));
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--light), transparent);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-description {
+            color: var(--light-70);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 250px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+        
+        .footer-nav-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-nav-title {
+            color: var(--light);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-link {
+            color: var(--light-70);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+            position: relative;
+            font-weight: 400;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--light);
+            transition: var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: var(--light);
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-70);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        
+        /* Páginas de Termos, Política e Contato - Premium */
+        .content-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem;
+            background: linear-gradient(145deg, rgba(15, 5, 30, 0.8), rgba(10, 3, 20, 0.9));
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow), var(--glow);
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            border-radius: 3px;
+        }
+        
+        .page-content {
+            color: var(--light-70);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .page-content p {
+            margin-bottom: 1.8rem;
+        }
+        
+        .page-content h2 {
+            color: var(--light-90);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .page-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+        }
+        
+        .page-content ul {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .page-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .page-content li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-card {
+            background: linear-gradient(145deg, rgba(15, 5, 30, 0.7), rgba(10, 3, 20, 0.9));
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2);
+            color: var(--highlight);
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-90);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-info {
+            color: var(--light-70);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 3rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            background: rgba(106, 0, 244, 0.1);
+            border: 1px solid rgba(106, 0, 244, 0.3);
+        }
+        
+        .back-to-home:hover {
+            color: var(--highlight);
+            transform: translateX(-10px);
+            background: rgba(106, 0, 244, 0.2);
+            box-shadow: 0 5px 15px rgba(106, 0, 244, 0.2);
+        }
+        
+        /* Modal para a foto */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        .modal-image {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0,245,160,0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            color: var(--light);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsividade Profissional */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                padding: 1.25rem;
+            }
+            
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-cta {
+                gap: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero-section {
+                padding: 4rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .product-card {
+                padding: 2rem;
+            }
+            
+            .product-header {
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .product-image {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .product-logo {
+                border-radius: 12px;
+            }
+            
+            .product-name {
+                font-size: 1.5rem;
+                white-space: normal;
+            }
+            
+            .support-section {
+                padding: 2.5rem;
+                margin: 4rem auto;
+            }
+            
+            .support-title {
+                font-size: 1.8rem;
+            }
+            
+            .support-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .content-page {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 1rem;
+            }
+            
+            .header-container {
+                padding: 0 1rem;
+                height: 70px;
+            }
+            
+            .header-logo {
+                font-size: 1.5rem;
+            }
+            
+            .header-nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 2.5rem;
+                margin-top: 70px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-title::after {
+                width: 100px;
+                height: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .product-card {
+                padding: 1.5rem;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .product-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .product-image {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+            }
+            
+            .product-logo {
+                border-radius: 10px;
+            }
+            
+            .product-name {
+                font-size: 1.4rem;
+                white-space: normal;
+            }
+            
+            .product-description {
+                font-size: 0.95rem;
+            }
+            
+            .feature-item {
+                font-size: 0.85rem;
+            }
+            
+            .product-link {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .support-section {
+                padding: 2rem;
+                margin: 3rem auto;
+                border-radius: 16px;
+            }
+            
+            .support-title {
+                font-size: 1.6rem;
+            }
+            
+            .support-subtitle {
+                font-size: 1rem;
+            }
+            
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            
+            .support-card {
+                padding: 1.5rem;
+            }
+            
+            .support-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .support-card-title {
+                font-size: 1.2rem;
+            }
+            
+            .support-button {
+                width: 100%;
+                max-width: 200px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+            
+            .footer-brand {
+                align-items: center;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .footer-contact {
+                align-items: center;
+            }
+            
+            .footer-nav {
+                gap: 1.5rem;
+            }
+            
+            .footer-nav-section {
+                gap: 0.5rem;
+            }
+            
+            .content-page {
+                padding: 1.25rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-container {
+                padding: 0 0.75rem;
+            }
+            
+            .header-container {
+                padding: 0 0.75rem;
+                height: 65px;
+            }
+            
+            .header-logo {
+                font-size: 1.3rem;
+            }
+            
+            .hero-section {
+                padding: 2.5rem 0 2rem;
+                margin-top: 65px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .hero-title::after {
+                width: 80px;
+                height: 2px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .product-content {
+                padding: 1.25rem;
+            }
+            
+            .support-section {
+                padding: 1.5rem;
+                margin: 2.5rem auto;
+                border-radius: 12px;
+            }
+            
+            .support-title {
+                font-size: 1.4rem;
+            }
+            
+            .support-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .support-card {
+                padding: 1.25rem;
+            }
+            
+            .support-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .support-card-title {
+                font-size: 1.1rem;
+            }
+            
+            .support-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+                min-width: auto;
+            }
+            
+            .content-page {
+                padding: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.25rem;
+            }
+            
+            .product-link {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 0 0.5rem;
+            }
+            
+            .header-container {
+                padding: 0 0.5rem;
+                height: 60px;
+            }
+            
+            .header-logo {
+                font-size: 1.2rem;
+            }
+            
+            .hero-section {
+                padding: 2rem 0 1.5rem;
+                margin-top: 60px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title::after {
+                width: 60px;
+                height: 2px;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .support-section {
+                padding: 1.25rem;
+                border-radius: 8px;
+            }
+            
+            .support-title {
+                font-size: 1.3rem;
+            }
+            
+            .support-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .support-card {
+                padding: 1rem;
+            }
+            
+            .support-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .support-card-title {
+                font-size: 1rem;
+            }
+            
+            .support-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .product-content {
+                padding: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Melhorias de acessibilidade e usabilidade */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Melhorias para dispositivos touch */
+        @media (hover: none) and (pointer: coarse) {
+            .product-card:hover,
+            .contact-card:hover,
+            .link-card:hover {
+                transform: none;
+            }
+            
+            .support-button:hover,
+            .official-button:hover,
+            .link-button:hover,
+            .product-link:hover {
+                transform: none;
+            }
+            
+            .menu-toggle:hover {
+                transform: none;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Efeitos de background premium -->
+    <div class="gradient-bg"></div>
+    <div class="particles" id="particles"></div>
+    
+    
+    <!-- Header Profissional -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="/" class="header-logo">
+                <img src="assets/images/logo sem fundo.png" alt="REDE RSX">
+            </a>
+            
+            <nav class="header-nav">
+                <div class="header-cta">
+                    <a href="#support" class="cta-button">
+                        <i class="fas fa-headset"></i> Suporte
+                    </a>
+                    <a href="https://discord.gg/QmkRRa7nKA" class="cta-button" target="_blank">
+                        <i class="fab fa-discord"></i> Comunidade
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+            <div class="mobile-nav" id="mobileNav">
+                <ul class="mobile-nav-links">
+                    <li><a href="#support" class="mobile-nav-link">
+                        <i class="fas fa-headset"></i> Suporte
+                    </a></li>
+                    <li><a href="https://discord.gg/QmkRRa7nKA" class="mobile-nav-link" target="_blank">
+                        <i class="fab fa-discord"></i> Comunidade
+                    </a></li>
+                </ul>
+            </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="main-container">
+            <h1 class="hero-title">REDE RSX</h1>
+            <p class="hero-subtitle">Soluções digitais de alto desempenho para impulsionar seu negócio no mundo digital</p>
+            
+            <div class="products-grid">
+                <!-- RSX STORE -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-image">
+                            <img src="assets/images/LOGOTIPO rsxstore.png" alt="RSX Store" class="product-logo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">RSX STORE</h3>
+                            <span class="product-badge">Premium</span>
+                        </div>
+                    </div>
+                    <p class="product-description">Acesso exclusivo a serviços digitais premium e plataformas especializadas para uso pessoal e profissional, com suporte dedicado e atualizações constantes.</p>
+                    
+                    <div class="product-features">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Suporte 24/7
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Atualizações constantes
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Acesso exclusivo
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/rsx-store" class="product-link">
+                        <i class="fas fa-arrow-right"></i> Acessar plataforma
+                    </a>
+                </div>
+                
+                <!-- RSX BOTS -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-image">
+                            <img src="assets/images/LOGOTIPO rsxbots.png" alt="RSX Bots" class="product-logo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">RSX BOTS</h3>
+                            <span class="product-badge">Automação</span>
+                        </div>
+                    </div>
+                    <p class="product-description">Soluções de automação inteligente com bots personalizados que otimizam processos, aumentam produtividade e simplificam operações complexas.</p>
+                    
+                    <div class="product-features">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Bots personalizados
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Automação inteligente
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Aumento de produtividade
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/rsx-bots" class="product-link">
+                        <i class="fas fa-arrow-right"></i> Acessar plataforma
+                    </a>
+                </div>
+                
+                <!-- RSX SYSTEM -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-image">
+                            <img src="assets/images/LOGOTIPO rsxsystem.png" alt="RSX System" class="product-logo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">RSX SYSTEM</h3>
+                            <span class="product-badge">Integrado</span>
+                        </div>
+                    </div>
+                    <p class="product-description">Plataforma integrada de jogos e softwares premium com preços competitivos, segurança avançada e performance otimizada para experiência superior.</p>
+                    
+                    <div class="product-features">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Preços competitivos
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Segurança avançada
+                            </li>
+                            <li class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                Performance otimizada
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <a href="/rsx-system" class="product-link">
+                        <i class="fas fa-arrow-right"></i> Acessar plataforma
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!-- Seção de Suporte Minimalista -->
+        <section class="support-section" id="support">
+            <div class="main-container">
+                <h3 class="support-title">Suporte</h3>
+                <p class="support-description">Entre em contato conosco para suporte rápido e eficiente.</p>
+                
+                <div class="support-buttons">
+                    <a href="https://wa.me/5541999566714?text=Ol%C3%A1%2C%20gostaria%20de%20suporte" class="support-button whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo sem fundo.png" alt="REDE RSX">
+                    </div>
+                    <p class="footer-description">
+                        Soluções digitais de alto desempenho para impulsionar seu negócio no mundo digital.
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-nav-section">
+                        <h4 class="footer-nav-title">Produtos</h4>
+                        <div class="footer-nav-links">
+                            <a href="/rsx-store" class="footer-link">RSX Store</a>
+                            <a href="/rsx-bots" class="footer-link">RSX Bots</a>
+                            <a href="/rsx-system" class="footer-link">RSX System</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h4 class="footer-nav-title">Suporte</h4>
+                        <div class="footer-nav-links">
+                            <a href="#support" class="footer-link">Central de Ajuda</a>
+                            <a href="https://wa.me/5541999566714" class="footer-link" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h4 class="footer-nav-title">Empresa</h4>
+                        <div class="footer-nav-links">
+                            <a href="/contato" class="footer-link">Contato</a>
+                            <a href="/termos" class="footer-link">Termos de Serviço</a>
+                            <a href="/politica" class="footer-link">Política de Privacidade</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://telegram.org/" class="social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+        </footer>
+    </div>
+
+    <!-- Página de Contato (contato) -->
+    <div id="contact-page" style="display: none;">
+        <div class="container">
+            <div class="content-page">
+                <h1 class="page-title">Contato</h1>
+                <div class="page-content">
+                    <p>Entre em contato conosco através dos nossos canais exclusivos de atendimento:</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h3 class="contact-title">WhatsApp Premium</h3>
+                            <p class="contact-info">Atendimento prioritário e resposta rápida</p>
+                            <p class="contact-info">+55 41 99956-6714</p>
+                            <a href="https://wa.me/5541999566714" class="support-button whatsapp-button" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Enviar Mensagem
+                            </a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="contact-title">Email Corporativo</h3>
+                            <p class="contact-info">Para assuntos comerciais</p>
+                            <p class="contact-info">rsxloja@gmail.com</p>
+                            <a href="mailto:rsxloja@gmail.com" class="support-button email-button">
+                                <i class="fas fa-envelope"></i> Enviar Email
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="/" class="back-to-home">
+                        <i class="fas fa-arrow-left"></i> Voltar para a página inicial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Termos de Serviço (termos) -->
+    <div id="terms-page" style="display: none;">
+        <div class="container">
+            <div class="content-page">
+                <h1 class="page-title">Termos de Serviço</h1>
+                <div class="page-content">
+                    <p>Última atualização: 01 de Janeiro de 2023</p>
+                    
+                    <h2>1. Aceitação dos Termos</h2>
+                    <p>Ao acessar ou utilizar qualquer serviço da REDE RSX, você concorda em ficar vinculado a estes Termos de Serviço, que constituem um contrato legal entre você e a REDE RSX. Se você não concordar com estes termos, não deverá acessar ou usar nossos serviços.</p>
+                    
+                    <h2>2. Serviços Oferecidos</h2>
+                    <p>A REDE RSX fornece soluções digitais premium incluindo mas não limitado a:</p>
+                    <ul>
+                        <li><strong>RSX Store:</strong> Plataforma de serviços digitais exclusivos</li>
+                        <li><strong>RSX Bots:</strong> Soluções de automação inteligente e personalizada</li>
+                        <li><strong>RSX System:</strong> Sistemas integrados para jogos e softwares</li>
+                    </ul>
+                    
+                    <h2>3. Responsabilidades do Usuário</h2>
+                    <p>Como usuário de nossos serviços, você concorda em:</p>
+                    <ul>
+                        <li>Fornecer informações verdadeiras, precisas e atualizadas durante o cadastro e uso contínuo</li>
+                        <li>Manter a segurança e confidencialidade de suas credenciais de acesso</li>
+                        <li>Não utilizar nossos serviços para qualquer atividade ilegal, fraudulenta ou que viole direitos de terceiros</li>
+                        <li>Respeitar todas as leis e regulamentos aplicáveis em sua jurisdição</li>
+                    </ul>
+                    
+                    <h2>4. Propriedade Intelectual</h2>
+                    <p>Todos os direitos de propriedade intelectual relacionados aos nossos serviços, incluindo mas não limitado a software, designs, logotipos, conteúdos e documentação, são de propriedade exclusiva da REDE RSX ou de seus licenciadores. Nenhuma parte destes materiais pode ser reproduzida, distribuída ou utilizada sem autorização prévia por escrito.</p>
+                    
+                    <h2>5. Modificações</h2>
+                    <p>Reservamo-nos o direito de modificar estes termos a qualquer momento, a nosso exclusivo critério. Alterações significativas serão comunicadas com antecedência mínima de 30 dias através dos canais oficiais de comunicação. O uso continuado de nossos serviços após tais modificações constitui sua aceitação dos novos termos.</p>
+                    
+                    <a href="/" class="back-to-home">
+                        <i class="fas fa-arrow-left"></i> Voltar para a página inicial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Política de Privacidade (politica) -->
+    <div id="policy-page" style="display: none;">
+        <div class="container">
+            <div class="content-page">
+                <h1 class="page-title">Política de Privacidade</h1>
+                <div class="page-content">
+                    <p>Última atualização: 01 de Janeiro de 2023</p>
+                    
+                    <h2>1. Informações Coletadas</h2>
+                    <p>Para fornecer nossos serviços com excelência, podemos coletar as seguintes categorias de informações:</p>
+                    <ul>
+                        <li><strong>Dados de cadastro:</strong> Nome completo, endereço de e-mail, dados de contato, informações de perfil</li>
+                        <li><strong>Dados de uso:</strong> Logs de acesso, interações com a plataforma, preferências, configurações</li>
+                        <li><strong>Dados de pagamento:</strong> Processados exclusivamente por gateways de pagamento seguros e certificados (não armazenamos dados financeiros sensíveis)</li>
+                        <li><strong>Dados técnicos:</strong> Endereço IP, tipo de dispositivo, navegador, sistema operacional, dados de desempenho</li>
+                    </ul>
+                    
+                    <h2>2. Uso das Informações</h2>
+                    <p>Utilizamos suas informações pessoais para os seguintes propósitos:</p>
+                    <ul>
+                        <li>Fornecer, manter e melhorar continuamente nossos serviços</li>
+                        <li>Processar transações e fornecer suporte ao cliente</li>
+                        <li>Comunicar atualizações importantes, mudanças políticas e ofertas especiais</li>
+                        <li>Personalizar e melhorar sua experiência com nossos produtos</li>
+                        <li>Monitorar e analisar tendências de uso para otimização de desempenho</li>
+                        <li>Prevenir, detectar e investigar atividades fraudulentas ou usos indevidos</li>
+                        <li>Cumprir obrigações legais e regulatórias</li>
+                    </ul>
+                    
+                    <h2>3. Compartilhamento de Dados</h2>
+                    <p>Valorizamos sua privacidade e não vendemos ou alugamos suas informações pessoais a terceiros. Podemos compartilhar dados nas seguintes situações:</p>
+                    <ul>
+                        <li><strong>Provedores de serviços:</strong> Com empresas que prestam serviços essenciais em nosso nome (hospedagem, pagamento, análise de dados), sob rigorosos acordos de confidencialidade</li>
+                        <li><strong>Exigências legais:</strong> Quando necessário para cumprir com leis, regulamentos, processos legais ou solicitações governamentais</li>
+                        <li><strong>Proteção de direitos:</strong> Para proteger nossos direitos, privacidade, segurança ou propriedade, bem como de nossos usuários ou do público</li>
+                        <li><strong>Reorganização corporativa:</strong> Em caso de fusão, aquisição ou venda de ativos, com notificação prévia</li>
+                    </ul>
+                    
+                    <h2>4. Segurança</h2>
+                    <p>Implementamos medidas de segurança técnicas e organizacionais robustas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição. Estas incluem:</p>
+                    <ul>
+                        <li>Criptografia avançada de dados em trânsito e em repouso</li>
+                        <li>Controles de acesso rigorosos e autenticação multifator</li>
+                        <li>Monitoramento contínuo de segurança e testes de penetração</li>
+                        <li>Políticas internas de segurança da informação e treinamento de equipe</li>
+                        <li>Backups regulares e planos de recuperação de desastres</li>
+                    </ul>
+                    
+                    <h2>5. Seus Direitos</h2>
+                    <p>Você tem direitos em relação aos seus dados pessoais, incluindo:</p>
+                    <ul>
+                        <li><strong>Acesso:</strong> Solicitar uma cópia dos dados que mantemos sobre você</li>
+                        <li><strong>Correção:</strong> Solicitar a retificação de dados imprecisos ou incompletos</li>
+                        <li><strong>Exclusão:</strong> Solicitar a eliminação de seus dados pessoais em determinadas circunstâncias</li>
+                        <li><strong>Restrição:</strong> Solicitar a limitação do processamento de seus dados</li>
+                        <li><strong>Portabilidade:</strong> Receber seus dados em formato estruturado e comumente usado</li>
+                        <li><strong>Oposição:</strong> Opor-se ao processamento de seus dados para fins específicos</li>
+                    </ul>
+                    <p>Para exercer estes direitos, entre em contato através dos nossos canais oficiais de suporte.</p>
+                    
+                    <a href="/" class="back-to-home">
+                        <i class="fas fa-arrow-left"></i> Voltar para a página inicial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para visualização da foto -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img src="https://i.imgur.com/zpYQpHi.png" alt="Perfil Oficial Roters" class="modal-image">
+        </div>
+    </div>
+
+    <script>
+        // Menu Mobile Profissional
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+        
+        
+        // Criar partículas estáticas
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamanho aleatório entre 1px e 3px
+                const size = Math.random() * 2 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posição inicial aleatória
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            
+            // Verificar qual página deve ser exibida
+            const path = window.location.pathname.split('/').pop();
+            const mainContent = document.querySelector('.container');
+            
+            if (path === 'contato') {
+                mainContent.style.display = 'none';
+                document.getElementById('contact-page').style.display = 'block';
+            } else if (path === 'termos') {
+                mainContent.style.display = 'none';
+                document.getElementById('terms-page').style.display = 'block';
+            } else if (path === 'politica') {
+                mainContent.style.display = 'none';
+                document.getElementById('policy-page').style.display = 'block';
+            }
+            
+        });
+
+        // Modal para a foto
+        const modal = document.getElementById("imageModal");
+        const img = document.getElementById("profileImage");
+        const modalImg = document.querySelector(".modal-image");
+        const closeModal = document.querySelector(".close-modal");
+        
+        img.onclick = function() {
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+</body>
+</html>

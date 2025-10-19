@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} - REDE RSX</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{BASE_PATH}}css/main.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/header.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/hero.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/products.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/support.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/footer.css">
+    <link rel="stylesheet" href="{{BASE_PATH}}css/responsive.css">
+    
+    <!-- Page Specific CSS -->
+    {{PAGE_CSS}}
+</head>
+<body>
+    <!-- Efeitos de background -->
+    <div class="gradient-bg"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Page Content -->
+    <main class="page-content">
+        {{PAGE_CONTENT}}
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- JavaScript -->
+    <script src="{{BASE_PATH}}js/main.js"></script>
+    <script src="{{BASE_PATH}}js/components.js"></script>
+    {{PAGE_JS}}
+</body>
+</html>

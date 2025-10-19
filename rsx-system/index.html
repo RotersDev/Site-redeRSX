@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSX System - REDE RSX</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/support.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <style>
+        /* Estilos específicos da página RSX System - SEM CONFLITOS COM HEADER */
+        .page-content {
+            margin-top: 100px; /* Espaçamento maior para o header fixo */
+            min-height: calc(100vh - 100px);
+        }
+        
+        .system-hero {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .system-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .system-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .system-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .system-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-70);
+            margin-bottom: 2rem;
+        }
+        
+        .presentation-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .presentation-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .presentation-description {
+            font-size: 1.1rem;
+            color: var(--light-70);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .presentation-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .presentation-button {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .presentation-button.discord {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+        }
+        
+        .presentation-button.discord:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.3);
+        }
+        
+        .presentation-button.store {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--dark);
+        }
+        
+        .presentation-button.store:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .features-section {
+            margin: 3rem 0;
+        }
+        
+        .features-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: var(--light-70);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        /* Botões específicos da página - NÃO conflitam com header */
+        .page-cta-button {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            margin: 0 1rem;
+        }
+        
+        .page-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .page-cta-button.secondary {
+            background: linear-gradient(135deg, var(--light-10), var(--light-30));
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .page-cta-button.secondary:hover {
+            background: var(--light);
+            color: var(--dark);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsividade para mobile */
+        @media (max-width: 768px) {
+            .page-content {
+                margin-top: 90px;
+            }
+            
+            .system-hero {
+                padding: 2rem;
+                margin: 1rem 0;
+            }
+            
+            .system-title {
+                font-size: 2.5rem;
+            }
+            
+            .system-subtitle {
+                font-size: 1rem;
+            }
+            
+            .presentation-section {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .presentation-title {
+                font-size: 1.5rem;
+            }
+            
+            .presentation-description {
+                font-size: 1rem;
+            }
+            
+            .presentation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .presentation-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .features-title {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+            
+            .page-cta-button {
+                margin: 0.5rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efeitos de background -->
+    <div class="gradient-bg"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="main-container">
+            <!-- Hero Section -->
+            <section class="system-hero">
+                <div class="system-logo">
+                    <img src="../assets/images/LOGOTIPO rsxsystem.png" alt="RSX System">
+                </div>
+                <h1 class="system-title">RSX SYSTEM</h1>
+                <p class="system-subtitle">Loja especializada em jogos da Steam, gift cards Steam e métodos Steam para sua conta.</p>
+            </section>
+            
+            <!-- Presentation Section -->
+            <section class="presentation-section">
+                <h2 class="presentation-title">Conheça Nossa Loja</h2>
+                <p class="presentation-description">Acesse nossa loja oficial para adquirir jogos da Steam, gift cards e muito mais.</p>
+                
+                <div class="presentation-buttons">
+                    <a href="https://discord.gg/QmkRRa7nKA" class="presentation-button discord" target="_blank">
+                        <i class="fab fa-discord"></i> Discord da Loja
+                    </a>
+                    <a href="#" class="presentation-button store" target="_blank">
+                        <i class="fas fa-store"></i> Acessar Loja
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2 class="features-title">O Que Vendemos</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-steam"></i>
+                        </div>
+                        <h3 class="feature-title">Jogos da Steam</h3>
+                        <p class="feature-description">Ampla variedade de jogos da Steam com preços competitivos e entrega direta na sua conta.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="feature-title">Gift Cards Steam</h3>
+                        <p class="feature-description">Gift cards Steam de diversos valores para você comprar seus jogos favoritos.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 class="feature-title">Métodos Steam</h3>
+                        <p class="feature-description">Métodos seguros e confiáveis para otimizar sua conta Steam e aproveitar ao máximo.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">Contas Steam</h3>
+                        <p class="feature-description">Contas Steam pré-configuradas com jogos e recursos para começar a jogar imediatamente.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="feature-title">Suporte Especializado</h3>
+                        <p class="feature-description">Suporte técnico especializado em Steam para resolver qualquer dúvida ou problema.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Garantia Total</h3>
+                        <p class="feature-description">Garantia de satisfação com reembolso em caso de problemas com qualquer produto.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2 style="color: var(--light); margin-bottom: 2rem; font-size: 2rem;">Pronto para jogar?</h2>
+                <a href="#" class="page-cta-button" target="_blank">
+                    <i class="fas fa-store"></i> Acessar Loja RSX System
+                </a>
+                <a href="https://wa.me/5541999566714?text=Olá, gostaria de conhecer o RSX System" class="page-cta-button secondary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar com Especialista
+                </a>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/components.js"></script>
+</body>
+</html>

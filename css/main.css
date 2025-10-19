@@ -1,0 +1,148 @@
+/* ========================================
+   REDE RSX - CSS Principal
+   ======================================== */
+
+:root {
+    /* Cores profissionais - tema preto */
+    --primary: #000000;
+    --primary-dark: #000000;
+    --primary-light: #111111;
+    --accent: #ffffff;
+    --accent-dark: #e0e0e0;
+    --accent-light: #ffffff;
+    --highlight: #ffffff;
+    --highlight-dark: #cccccc;
+    --highlight-light: #ffffff;
+    
+    /* Cores de suporte profissionais */
+    --whatsapp: #25D366;
+    --whatsapp-dark: #128C7E;
+    --email: #4285F4;
+    --email-dark: #1a73e8;
+    
+    /* Tons neutros profissionais */
+    --dark: #000000;
+    --darker: #000000;
+    --light: #ffffff;
+    --light-90: rgba(255, 255, 255, 0.9);
+    --light-70: rgba(255, 255, 255, 0.7);
+    --light-50: rgba(255, 255, 255, 0.5);
+    --light-30: rgba(255, 255, 255, 0.3);
+    --light-10: rgba(255, 255, 255, 0.1);
+    
+    /* Efeitos profissionais */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.6);
+    --glow: 0 0 20px rgba(255, 255, 255, 0.1);
+    --glow-accent: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+}
+
+/* Container principal */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Efeitos de background */
+.gradient-bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 30%, 
+            rgba(255, 255, 255, 0.02) 0%, 
+            transparent 30%),
+        radial-gradient(circle at 70% 70%, 
+            rgba(255, 255, 255, 0.01) 0%, 
+            transparent 30%);
+    z-index: -2;
+    opacity: 0.8;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.3;
+}
+
+/* Dark Mode Automático */
+.dark-mode {
+    --primary: #000000;
+    --primary-dark: #000000;
+    --primary-light: #111111;
+    --accent: #ffffff;
+    --accent-dark: #e0e0e0;
+    --accent-light: #ffffff;
+    --highlight: #ffffff;
+    --highlight-dark: #cccccc;
+    --highlight-light: #ffffff;
+    
+    --dark: #000000;
+    --darker: #000000;
+    --light: #ffffff;
+    --light-90: rgba(255, 255, 255, 0.9);
+    --light-70: rgba(255, 255, 255, 0.7);
+    --light-50: rgba(255, 255, 255, 0.5);
+    --light-30: rgba(255, 255, 255, 0.3);
+    --light-10: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode body {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.dark-mode .gradient-bg {
+    background: 
+        radial-gradient(circle at 30% 30%, 
+            rgba(255, 255, 255, 0.03) 0%, 
+            transparent 30%),
+        radial-gradient(circle at 70% 70%, 
+            rgba(255, 255, 255, 0.02) 0%, 
+            transparent 30%);
+}
+
+.dark-mode .particle {
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 0.4;
+}

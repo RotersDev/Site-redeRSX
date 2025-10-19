@@ -1,0 +1,398 @@
+/* ========================================
+   FOOTER PROFISSIONAL - REDE RSX
+   ======================================== */
+
+footer.footer-pro {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    color: #ccc;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+footer.footer-pro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer.footer-pro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+footer.footer-pro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+/* Call-to-Action Section */
+.footer-cta {
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 0;
+    position: relative;
+}
+
+.footer-cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.02) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+    pointer-events: none;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button.primary {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.cta-button.secondary {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.1);
+}
+
+/* Footer Main */
+.footer-main {
+    padding: 4rem 0 2rem;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo-area {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.footer-logo-area img {
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-area img:hover {
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tagline {
+    color: #999;
+    font-size: 0.95rem;
+    max-width: 300px;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    flex: 2;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.footer-links h4 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+}
+
+.footer-links h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #25D366, #128C7E);
+    border-radius: 2px;
+}
+
+.footer-links a {
+    display: block;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.footer-links a::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 1px;
+    background: #25D366;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #25D366;
+    transform: translateX(10px);
+}
+
+.footer-links a:hover::before {
+    width: 6px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: #ddd;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a i {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.social-links a:hover::before {
+    opacity: 1;
+}
+
+.social-links a:hover i {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 1rem;
+}
+
+.footer-copyright p {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.micro-copyright {
+    color: #666;
+    font-size: 0.8rem;
+    font-style: italic;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Dark Mode Detection */
+@media (prefers-color-scheme: dark) {
+    footer.footer-pro {
+        background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer-cta {
+        padding: 2rem 0;
+    }
+    
+    .cta-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .footer-main {
+        padding: 3rem 0 2rem;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .footer-logo-area {
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-links h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

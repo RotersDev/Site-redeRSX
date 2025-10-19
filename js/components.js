@@ -102,6 +102,13 @@ class ComponentLoader {
             this.loadHeader(),
             this.loadFooter()
         ]);
+        
+        // Inicializar Enhanced Features após carregar os componentes
+        setTimeout(() => {
+            if (!window.enhancedFeatures) {
+                window.enhancedFeatures = new EnhancedFeatures();
+            }
+        }, 300);
     }
 }
 

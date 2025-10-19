@@ -3,11 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDE RSX - Soluções Digitais Premium</title>
+    <title>REDE RSX - Soluções Digitais Premium | RSX Store, RSX Bots, RSX System</title>
     
-    <!-- Fonts -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="REDE RSX oferece soluções digitais premium: RSX Store (produtos digitais), RSX Bots (automação Discord), RSX System (jogos Steam). Qualidade, suporte especializado e entrega automática.">
+    <meta name="keywords" content="REDE RSX, produtos digitais, bots discord, jogos steam, automação, RSX Store, RSX Bots, RSX System, soluções digitais">
+    <meta name="author" content="REDE RSX">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redersx.com/">
+    <meta property="og:title" content="REDE RSX - Soluções Digitais Premium">
+    <meta property="og:description" content="Soluções digitais de alto desempenho: RSX Store, RSX Bots e RSX System. Qualidade premium com suporte especializado.">
+    <meta property="og:image" content="https://redersx.com/assets/images/logo sem fundo.png">
+    <meta property="og:site_name" content="REDE RSX">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://redersx.com/">
+    <meta property="twitter:title" content="REDE RSX - Soluções Digitais Premium">
+    <meta property="twitter:description" content="Soluções digitais de alto desempenho: RSX Store, RSX Bots e RSX System.">
+    <meta property="twitter:image" content="https://redersx.com/assets/images/logo sem fundo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://redersx.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo sem fundo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo sem fundo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo sem fundo.png">
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://discord.gg">
+    <link rel="dns-prefetch" href="https://chat.whatsapp.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="css/header.css" as="style">
+    <link rel="preload" href="assets/images/logo sem fundo.png" as="image">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
@@ -21,48 +63,16 @@
     <link rel="stylesheet" href="css/support.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/enhanced-ui.css">
+    <link rel="stylesheet" href="css/advanced-features.css">
 </head>
 <body>
     <!-- Efeitos de background -->
     <div class="gradient-bg"></div>
     <div class="particles" id="particles"></div>
     
-    <!-- Header -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="/" class="header-logo">
-                <img src="assets/images/logo sem fundo.png" alt="REDE RSX">
-            </a>
-            
-            <nav class="header-nav">
-                <div class="header-cta">
-                    <a href="#support" class="cta-button">
-                        <i class="fas fa-headset"></i> Suporte
-                    </a>
-                    <a href="https://discord.gg/QmkRRa7nKA" class="cta-button" target="_blank">
-                        <i class="fab fa-discord"></i> Comunidade
-            </a>
-        </div>
-            </nav>
-            
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <ul class="mobile-nav-links">
-                <li><a href="#support" class="mobile-nav-link">
-                <i class="fas fa-headset"></i> Suporte
-                </a></li>
-                <li><a href="https://discord.gg/QmkRRa7nKA" class="mobile-nav-link" target="_blank">
-                    <i class="fab fa-discord"></i> Comunidade
-                </a></li>
-            </ul>
-        </div>
-        </header>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
         
     <!-- Hero Section -->
     <section class="hero-section">
@@ -79,10 +89,10 @@
         
         <div class="products-grid">
                 <!-- RSX Store -->
-            <div class="product-card">
+            <div class="product-card enhanced-card enhanced-hover pulse-glow">
                     <div class="product-badge">Premium</div>
                     <div class="product-logo">
-                        <img src="assets/images/LOGOTIPO rsxstore.png" alt="RSX Store">
+                        <img src="assets/images/LOGOTIPO rsxstore.png" alt="RSX Store" loading="lazy">
                 </div>
                     <h3 class="product-name">RSX STORE</h3>
                     <p class="product-description">Loja especializada em produtos digitais com entrega automática, suporte e preços acessíveis.</p>
@@ -95,14 +105,14 @@
                         <li>Garantia total</li>
                     </ul>
                     
-                    <a href="/rsx-store" class="product-button">Acessar Loja</a>
+                    <a href="/rsx-store" class="product-button" onclick="showToast('Abrindo RSX Store...', 'success')">Acessar Loja</a>
             </div>
             
                 <!-- RSX Bots -->
-            <div class="product-card">
+            <div class="product-card enhanced-card enhanced-hover pulse-glow">
                     <div class="product-badge">Automation</div>
                     <div class="product-logo">
-                        <img src="assets/images/LOGOTIPO rsxbots.png" alt="RSX Bots">
+                        <img src="assets/images/LOGOTIPO rsxbots.png" alt="RSX Bots" loading="lazy">
                 </div>
                     <h3 class="product-name">RSX BOTS</h3>
                     <p class="product-description">Loja especializada em bots personalizados para Discord, aplicações e integrações com API.</p>
@@ -115,14 +125,14 @@
                         <li>Suporte especializado</li>
                     </ul>
                     
-                    <a href="/rsx-bots" class="product-button">Acessar Loja</a>
+                    <a href="/rsx-bots" class="product-button" onclick="showToast('Abrindo RSX Bots...', 'success')">Acessar Loja</a>
             </div>
             
                 <!-- RSX System -->
-            <div class="product-card">
+            <div class="product-card enhanced-card enhanced-hover pulse-glow">
                     <div class="product-badge">Gaming</div>
                     <div class="product-logo">
-                        <img src="assets/images/LOGOTIPO rsxsystem.png" alt="RSX System">
+                        <img src="assets/images/LOGOTIPO rsxsystem.png" alt="RSX System" loading="lazy">
                 </div>
                     <h3 class="product-name">RSX SYSTEM</h3>
                     <p class="product-description">Loja especializada em jogos da Steam, gift cards Steam e métodos Steam para sua conta.</p>
@@ -135,7 +145,7 @@
                         <li>Suporte especializado</li>
                     </ul>
                     
-                    <a href="/rsx-system" class="product-button">Acessar Loja</a>
+                    <a href="/rsx-system" class="product-button" onclick="showToast('Abrindo RSX System...', 'success')">Acessar Loja</a>
                 </div>
             </div>
         </div>
@@ -148,7 +158,7 @@
             <p class="support-description">Entre em contato conosco para suporte rápido e eficiente.</p>
             
             <div class="support-buttons">
-                <a href="https://wa.me/5541999566714?text=Ol%C3%A1%2C%20gostaria%20de%20suporte" class="support-button whatsapp-button" target="_blank">
+                <a href="https://chat.whatsapp.com/Jo08CUfHPW3Cdm4cINXhmA?text=Ol%C3%A1%2C%20gostaria%20de%20suporte" class="support-button whatsapp-button" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
@@ -161,5 +171,31 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/enhanced-features.js"></script>
+    
+    <!-- Analytics e Tracking -->
+    <script>
+        // Performance tracking
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`Site carregado em ${loadTime.toFixed(2)}ms`);
+            
+            // Track page views
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: document.title,
+                    page_location: window.location.href
+                });
+            }
+        });
+        
+        // Track interactions
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.product-button')) {
+                const storeName = e.target.closest('.product-card').querySelector('.product-name').textContent;
+                console.log(`Usuário clicou em: ${storeName}`);
+            }
+        });
+    </script>
 </body>
 </html>

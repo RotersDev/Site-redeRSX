@@ -26,15 +26,16 @@
 .hero-title::after {
     content: '';
     position: absolute;
-    bottom: -12px;
+    bottom: 1px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, var(--light), transparent);
-    border-radius: 2px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    width: 280px;
+    height: 6px;
+    background: linear-gradient(90deg, transparent 0%, rgba(20, 20, 25, 0.95) 20%, rgba(255, 255, 255, 0.2) 50%, rgba(20, 20, 25, 0.95) 80%, transparent 100%);
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
+
 
 .hero-subtitle {
     font-size: 1.3rem;

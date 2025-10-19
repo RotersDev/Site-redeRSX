@@ -5,7 +5,7 @@
 class ComponentLoader {
     constructor() {
         this.basePath = this.getBasePath();
-        this.version = '1.0.0'; // Versão dos componentes
+        this.version = '1.1.0'; // Versão dos componentes (atualizada para incluir search bar no HTML)
     }
 
     getBasePath() {
@@ -140,6 +140,10 @@ class ComponentLoader {
         setTimeout(() => {
             if (!window.enhancedFeatures) {
                 window.enhancedFeatures = new EnhancedFeatures();
+            }
+            // Sempre tentar reinicializar a busca para garantir que funcione
+            if (window.enhancedFeatures && typeof window.enhancedFeatures.setupSearchFunctionality === 'function') {
+                window.enhancedFeatures.setupSearchFunctionality();
             }
         }, 300);
     }

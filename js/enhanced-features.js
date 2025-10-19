@@ -4,6 +4,11 @@
 
 class EnhancedFeatures {
     constructor() {
+        // Verificar se já foi inicializado
+        if (window.enhancedFeatures && window.enhancedFeatures.initialized) {
+            return window.enhancedFeatures;
+        }
+        this.initialized = true;
         this.init();
     }
 
@@ -102,7 +107,20 @@ class EnhancedFeatures {
 
     // Sistema de Busca
     initSearchSystem() {
-        // Criar barra de busca
+        // Verificar se a barra de pesquisa já existe (já está no HTML do header)
+        const searchContainer = document.querySelector('.search-container');
+        
+        if (searchContainer) {
+            // Se já existe, apenas inicializar a funcionalidade
+            this.setupSearchFunctionality();
+        } else {
+            // Fallback: criar se não existir (para compatibilidade)
+            this.createSearchBar();
+        }
+    }
+
+    createSearchBar() {
+        // Criar barra de busca (fallback para compatibilidade)
         const searchContainer = document.createElement('div');
         searchContainer.className = 'search-container';
         searchContainer.innerHTML = `
@@ -134,6 +152,14 @@ class EnhancedFeatures {
             const searchResults = document.querySelector('.search-results');
 
             if (!searchInput) return;
+
+            // Verificar se os event listeners já foram adicionados
+            if (searchInput.hasAttribute('data-search-initialized')) {
+                return;
+            }
+
+            // Marcar como inicializado
+            searchInput.setAttribute('data-search-initialized', 'true');
 
         // Dados das lojas para busca
         const storesData = [

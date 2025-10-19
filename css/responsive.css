@@ -92,38 +92,7 @@
         justify-content: center;
     }
     
-    footer {
-        margin-top: 4rem;
-        padding: 3rem 0 1.5rem;
-    }
-    
-    .footer-brand {
-        margin-bottom: 2rem;
-    }
-    
-    .footer-logo img {
-        height: 40px;
-    }
-    
-    .footer-nav {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    
-    .footer-nav-links {
-        align-items: center;
-    }
-    
-    .footer-social-links {
-        gap: 0.8rem;
-    }
-    
-    .footer-social-link {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
+    /* Footer styles moved to footer.css */
 }
 
 /* Mobile Small */
@@ -175,25 +144,7 @@
         font-size: 0.9rem;
     }
     
-    .footer-content {
-        padding: 0 1rem;
-    }
-    
-    .footer-brand-text {
-        font-size: 1rem;
-    }
-    
-    .footer-tagline {
-        font-size: 0.8rem;
-    }
-    
-    .footer-nav-section h4 {
-        font-size: 1rem;
-    }
-    
-    .footer-link {
-        font-size: 0.8rem;
-    }
+    /* Footer styles moved to footer.css */
 }
 
 /* Mobile Extra Small */
